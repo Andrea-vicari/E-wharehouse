@@ -41,7 +41,7 @@ mongoose.connect(process.env.MONGODB_URI)
 const prodottiRoutes = require('./routes/prodottiRoutes');
 //const usersRoutes = require('./routes/users');
 //const bookingsRoutes = require('./routes/bookings');
-// const imagesRoutes = require('./routes/images');
+const imagesRoutes = require('./routes/imagesRoutes');
 
 app.use(prodottiRoutes)
 //app.use(usersRoutes)
