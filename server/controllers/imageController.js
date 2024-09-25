@@ -1,5 +1,5 @@
 
-const Images = require('../models/ImageModel');
+const Images = require('../models/imageModel');
 const mongoose = require('mongoose');
 
 var fs = require('fs');
