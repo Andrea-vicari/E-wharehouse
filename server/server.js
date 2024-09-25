@@ -46,7 +46,7 @@ const imagesRoutes = require('./routes/imagesRoutes');
 app.use(prodottiRoutes)
 //app.use(usersRoutes)
 //app.use(bookingsRoutes)
-// app.use(imagesRoutes)
+app.use(imagesRoutes)
 
 app.use('/api/prodotti', prodottiRoutes)
 //app.use('/api/users', usersRoutes)
