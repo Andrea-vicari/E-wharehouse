@@ -6,6 +6,13 @@ var fs = require('fs');
 var multer = require('multer');
 
 
+const storage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        
+    }
+})
+
+
 // Get all Images: OK
 const viewAllImages = async (req, res)=> {
 
