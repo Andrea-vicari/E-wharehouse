@@ -17,7 +17,6 @@ const viewAllImages = async (req, res)=> {
 
 }
 
-/*
 const uploadImages = async (req, res)=> {
 
     const {image} = req.body
@@ -35,7 +34,7 @@ const uploadImages = async (req, res)=> {
     }
 
 }
-*/
+
 module.exports = {
     viewAllImages, uploadImages
 }
