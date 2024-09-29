@@ -8,9 +8,15 @@ var multer = require('multer');
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-        
+        cb(null,"uploads/")
+    },
+    filename:(req,file,cb)=>{
+        cb(null, Date.now() + file.originalname)
     }
+
 })
+
+const upload = multer({storage:storage})
 
 
 // Get all Images: OK
@@ -24,7 +30,7 @@ const viewAllImages = async (req, res)=> {
 
 }
 
-
+/*
 const uploadImages = async (req, res)=> {
 
     const {image} = req.body
@@ -42,7 +48,8 @@ const uploadImages = async (req, res)=> {
     }
 
 }
+*/
 
 module.exports = {
-    viewAllImages, uploadImages
+    viewAllImages, upload
 }
