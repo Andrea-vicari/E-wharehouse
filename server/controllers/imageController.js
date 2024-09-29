@@ -13,7 +13,7 @@ const viewAllImages = async (req, res)=> {
     console.log("View all Images")
 
     const allImages = await Images.find({}).sort({createdAt: -1});
-    res.status(200).json(allImages.filename)
+    res.status(200).json(allImages)
 
 }
 
