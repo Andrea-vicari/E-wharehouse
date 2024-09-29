@@ -4,7 +4,8 @@ const imagesSchema = new mongoose.Schema({
 
     filename:{
         type:String,
-        required:false
+        required:false,
+        data: Buffer
     },
     filepath:{
         type:String,
