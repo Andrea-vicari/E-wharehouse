@@ -4,11 +4,11 @@ const imagesSchema = new mongoose.Schema({
 
     filename:{
         type:String,
-        required:true
+        required:false
     },
     filepath:{
         type:String,
-        required:true
+        required:false
     }
 
 },{ timestamps:true })
