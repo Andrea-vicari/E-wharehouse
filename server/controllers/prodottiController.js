@@ -1,5 +1,19 @@
 const Prodotti = require('../models/prodottiModel');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination(req, file, cb) {
+      cb(null, '/public/images')
+    },
+    filename(req, file, cb) {
+      cb(null, file.fieldname + " - " + Date.now() + path.extname(file.originalname))
+    }
+  })
+
+const upload = multer({ storage });
+
 
 // Get all Prodotti: OK
 const viewAllProdotti = async (req, res)=> {
@@ -17,13 +31,13 @@ const viewAllProdotti = async (req, res)=> {
 const createNewProdotti = async (req, res)=> {
 
 
-    const {nome, categoria, tipologia, descrizione, peso, scaffale, campata, ripiano, cassetta} = req.body
+    const {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine} = req.body
 
 
     // Add doc to the Mongo DB
 
     try{
-        const prodotti = await Prodotti.create({nome, categoria, tipologia, descrizione, peso, scaffale, campata, ripiano, cassetta})
+        const prodotti = await Prodotti.create({nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine})
         res.status(200).json(Prodotti)
     }
 
@@ -33,6 +47,14 @@ const createNewProdotti = async (req, res)=> {
     }
 
 }
+
+const aggiungiImmagine = async (req, res)=> {
+
+    const { id } = req.params;
+    console.log(id)
+    
+}
+
 
 // Delete
 const deleteProdotto = async (req, res)=> {
@@ -57,5 +79,6 @@ const deleteProdotto = async (req, res)=> {
 module.exports = {
     createNewProdotti,
     viewAllProdotti,
-    deleteProdotto
+    deleteProdotto,
+    aggiungiImmagine
 }

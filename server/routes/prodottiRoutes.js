@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {createNewProdotti, viewAllProdotti, deleteProdotto} = require('../controllers/prodottiController');
+const {createNewProdotti, viewAllProdotti, deleteProdotto, aggiungiImmagine} = require('../controllers/prodottiController');
 
 
 const router = express.Router();
@@ -14,6 +14,7 @@ router.get('/', viewAllProdotti);
 
 // Post
 router.post('/', createNewProdotti);
+router.post('/immagine', aggiungiImmagine);
 
 // Delete
 router.delete('/:id', deleteProdotto);
