@@ -3,16 +3,6 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 
-const storage = multer.diskStorage({
-    destination(req, file, cb) {
-      cb(null, '/public/images')
-    },
-    filename(req, file, cb) {
-      cb(null, file.fieldname + " - " + Date.now() + path.extname(file.originalname))
-    }
-  })
-
-const upload = multer({ storage });
 
 
 // Get all Prodotti: OK
@@ -47,6 +37,8 @@ const createNewProdotti = async (req, res)=> {
     }
 
 }
+
+
 
 const aggiungiImmagine = async (req, res)=> {
 

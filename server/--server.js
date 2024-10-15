@@ -28,7 +28,7 @@ app.use(cors(
         methods: ["POST", "GET", "PUT", "PATCH"],
         credentials: true,
         allowedHeaders: ['Content-Type'], // Specify allowed headers
-
+        
     }
 ));
 

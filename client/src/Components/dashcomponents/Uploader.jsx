@@ -1,37 +1,29 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import axios from 'axios'
 
 
 function Uploader() {
 
-const [image, setImage] = useState(null);
+const [file, setFile] = useState(null);
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  try {
-    const formData = new FormData();
-    // image is the state which has image details
-    formData.append('file', image);
-    var name;
-    await axios.post("http://localhost:8080/uploads", formData, {
-      withCredentials: true,
-    })
-    .then((response) => {
-      toast.success("Image uploaded successfully");
-      name = response.data;
-    });
-  } catch (error) {
-    console.log(error);
-  }
+const handleSubmit =  (event) => {
+  event.preventDefault(event);
+  	const formdata = new FormData()
+  	formdata.append('file', file)
+	axios.post('http://localhost:8080/upload', formdata)
+	 .then(res=>console.log(res))
+	 .catch(err=>console.log(err))
+  
 };
 
 
   return (
     <div className='container py-5 mt-5'>
-		<form onSubmit={handleSubmit} enctype="multipart/form-data">
-  			<input type="file" onChange={(event) => setImage(event.target.files[0])} />
-  		</form>
-    </div>
+		
+  			<input type="file" onChange={(event) => setFile(event.target.files[0])} />
+  			<button type="button" className="btn btn-primary" onClick={handleSubmit}>Upload</button>
+  	</div>
   )
 }
 

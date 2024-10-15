@@ -14,7 +14,8 @@ router.get('/', viewAllProdotti);
 
 // Post
 router.post('/', createNewProdotti);
-router.post('/immagine', aggiungiImmagine);
+
+router.post('/', aggiungiImmagine);
 
 // Delete
 router.delete('/:id', deleteProdotto);
