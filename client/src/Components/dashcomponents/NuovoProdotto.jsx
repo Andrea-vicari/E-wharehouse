@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo-magazzino-footer.svg";
 import { useSelector } from 'react-redux'
-import axios from 'axios'
 import Uploader from "./Uploader";
+import uniqid from 'uniqid';
 
-var userID
+
 
 const NuovoProdotto = () =>{
 
@@ -16,16 +16,19 @@ const NuovoProdotto = () =>{
   themeType == "ligth" ? bgType = "bg-light" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-  let clicked = useLocation();
 
-  userID = clicked.state
 
 
   var today = new Date().toDateString()
 
   console.log(today)
 
+  var unicoID = uniqid()
 
+  console.log("Im am unique")
+  console.log(unicoID)
+
+  console.log()
     const [user, setUser] = useState('')
 
     // Nuovi usestate

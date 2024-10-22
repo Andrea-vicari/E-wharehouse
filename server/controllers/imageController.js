@@ -26,6 +26,7 @@ const uploadImages = async (req, res)=> {
 
     try{
         const Image = await Images.create({image})
+        console.log("BELLA!!")
         res.status(200).json(Image)
     }
 
