@@ -2,15 +2,14 @@ const mongoose = require('mongoose')
 
 const imagesSchema = new mongoose.Schema({
 
-    filename:{
-        type:String,
-        required:false,
-        data: Buffer
-    },
-    filepath:{
-        type:String,
-        required:false
-    }
+    immagine:{
+            type: String,
+            required: false
+               	},
+    	idProdotto:{
+    		type: String,
+            required: false
+    	}
 
 },{ timestamps:true })
 

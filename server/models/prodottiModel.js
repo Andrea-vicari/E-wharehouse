@@ -63,9 +63,9 @@ const prodottiSchema = new mongoose.Schema({
         required: false
     },
     immagine:{
-        type: String,
-        required: false,
-        default: "file_1715325537969.png"
+            type: String,
+            required: false,
+            default: "file_1715325537969.png"
     }
 
 },{ timestamps:true })

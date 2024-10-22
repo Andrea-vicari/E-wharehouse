@@ -21,13 +21,13 @@ const viewAllProdotti = async (req, res)=> {
 const createNewProdotti = async (req, res)=> {
 
 
-    const {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine} = req.body
+    const {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione} = req.body
 
 
     // Add doc to the Mongo DB
 
     try{
-        const prodotti = await Prodotti.create({nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine})
+        const prodotti = await Prodotti.create({nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione})
         res.status(200).json(Prodotti)
     }
 
@@ -39,13 +39,6 @@ const createNewProdotti = async (req, res)=> {
 }
 
 
-
-const aggiungiImmagine = async (req, res)=> {
-
-    const { id } = req.params;
-    console.log(id)
-    
-}
 
 
 // Delete
@@ -71,6 +64,5 @@ const deleteProdotto = async (req, res)=> {
 module.exports = {
     createNewProdotti,
     viewAllProdotti,
-    deleteProdotto,
-    aggiungiImmagine
+    deleteProdotto
 }

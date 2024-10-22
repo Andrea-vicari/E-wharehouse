@@ -5,18 +5,25 @@ import axios from 'axios'
 
 function Uploader() {
 
+const id= 123456
+
 const [file, setFile] = useState(null);
+const [idProdotto, setidProdotto] = useState(null);
 
 const handleSubmit =  (event) => {
   event.preventDefault(event);
+  	setidProdotto(id)
   	const formdata = new FormData()
   	formdata.append('file', file)
+  	formdata.append('id', id)
+
 	axios.post('http://localhost:8080/upload', formdata)
 	 .then(res=>console.log(res))
 	 .catch(err=>console.log(err))
   
 };
-
+ 
+ 
 
   return (
     <div className='container py-5 mt-5'>

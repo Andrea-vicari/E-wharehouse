@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo-magazzino-footer.svg";
 import { useSelector } from 'react-redux'
-import axios from 'axios'
-import Uploader from "./Uploader";
+
 
 var userID
 
@@ -337,16 +336,23 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <Uploader />
-              <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
-  		      </button>
+              <div className="mb-3">
+                <label htmlFor="Immagine" className="text-primary">
+                  <strong>Carica immagine</strong>
+                </label>
+
+              <Link to={`/uploadimagepage/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+                Carica Immagine
+              </Link>
+              </div>
 
 
-              {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
-            </form>
-            <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+
+              <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
+              {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
+            </form>
 
             {/** MODALE */}
             <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_prodotto">

@@ -1,30 +1,29 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
 
-const {createNewProdotti, viewAllProdotti, deleteProdotto, aggiungiImmagine} = require('../controllers/prodottiController');
+
+const {createNewProdotti, viewAllProdotti, deleteProdotto} = require('../controllers/prodottiController');
 
 
 const router = express.Router();
 
 
+
+
+// Get
 router.get('/', viewAllProdotti);
 
-
-//router.get('/closed/closedWorks', getClosedWorkout);
+// Delete
+router.delete('/:id', deleteProdotto);
 
 
 // Post
 router.post('/', createNewProdotti);
 
-router.post('/', aggiungiImmagine);
 
-// Delete
-router.delete('/:id', deleteProdotto);
 
-// Update
-//router.patch('/:id', updateWorkOut);
 
-// Confirm
-//router.patch('/close/:id', confirmWorkOut);
-
+//router.get('/closed/closedWorks', getClosedWorkout);
 
 module.exports = router;

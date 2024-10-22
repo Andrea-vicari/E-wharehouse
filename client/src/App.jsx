@@ -25,7 +25,7 @@ import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
 import UsersList from './pages/dashpages/UsersListPage';
 import SingleUserPage from './pages/dashpages/SingleUserPage';
-import NewTrainingPage from './pages/dashpages/NewTrainingPage';
+import UploadImagePage from './pages/dashpages/UploadImagePage';
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 import NewBookingPage from './pages/dashpages/NewBookingPage';
@@ -70,7 +70,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/nutrizione" element={<NutrizionePage />} />
             <Route path="/singlepost" element={<SinglePost />} />
-            <Route path="/newtraining/:id" element={<NewTrainingPage />} />
+            <Route path="/uploadimagepage" element={<UploadImagePage />} />
             <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
             <Route path="/newbooking" element={user ? <NewBookingPage /> : <Navigate to="/login"/>} />
             <Route path="/schedatrainerpage/:id" element={<SchedaTrainerPage />} />

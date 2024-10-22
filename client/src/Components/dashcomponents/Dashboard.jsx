@@ -37,7 +37,7 @@ function Dashboard() {
                     <h1 className="section-title pt-5">Bacheca Gestionale</h1>
                     <div className="container">
                         <div className="row mb-3">
-                           
+
 
 
                             {/** Below only for USERS */}
@@ -65,7 +65,7 @@ function Dashboard() {
                                             <div className="col-md-6">
                                                 <h2 className="text-primary">Aggiungi Prodotto</h2>
                                                 <p className="text-secondary">Clicca per aggiungere un nuovo prodotto</p>
-                                                <Link to="/uploader" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi prodotto</Link>
+                                                <Link to="/nuovoprodotto" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi prodotto</Link>
                                             </div>
                                     </div>
 
