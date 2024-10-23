@@ -7,15 +7,11 @@ var _require = require('../controllers/prodottiController'),
     viewAllProdotti = _require.viewAllProdotti,
     deleteProdotto = _require.deleteProdotto;
 
-var router = express.Router();
-router.get('/', viewAllProdotti); //router.get('/closed/closedWorks', getClosedWorkout);
-// Post
+var router = express.Router(); // Get
 
-router.post('/', createNewProdotti); // Delete
+router.get('/', viewAllProdotti); // Delete
 
-router["delete"]('/:id', deleteProdotto); // Update
-//router.patch('/:id', updateWorkOut);
-// Confirm
-//router.patch('/close/:id', confirmWorkOut);
+router["delete"]('/:id', deleteProdotto); // Post
 
+router.post('/', createNewProdotti);
 module.exports = router;

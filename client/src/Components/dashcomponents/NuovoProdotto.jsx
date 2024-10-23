@@ -46,7 +46,7 @@ const NuovoProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
+    //const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
     const [codUni, setCodUni] = useState('')
@@ -67,7 +67,7 @@ const NuovoProdotto = () =>{
         setToday(today)
         setCodUni(unicoID)
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine,unicoID}
+        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine,unicoID}
 
         const response = await fetch('http://localhost:8080/api/prodotti', {
 
@@ -103,7 +103,7 @@ const NuovoProdotto = () =>{
             setMarca('')
             setModello('')
             setVersione('')
-            setAnnoImmatricolazione('')
+            // setAnnoImmatricolazione('')
             setimmagine('')
             setError(null)
             setemptyFields([])
