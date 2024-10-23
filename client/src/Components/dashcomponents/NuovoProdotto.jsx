@@ -29,7 +29,7 @@ const NuovoProdotto = () =>{
   console.log(unicoID)
 
   console.log()
-    const [user, setUser] = useState('')
+    //const [user, setUser] = useState('')
 
     // Nuovi usestate
     const [nome, setNome] = useState('')
@@ -49,6 +49,7 @@ const NuovoProdotto = () =>{
     const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
+    const [codUni, setCodUni] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
 
@@ -62,10 +63,11 @@ const NuovoProdotto = () =>{
 
         e.preventDefault()
 
-        setUser(userID)
+        // setUser(userID)
         setToday(today)
+        setCodUni(unicoID)
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine}
+        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine,unicoID}
 
         const response = await fetch('http://localhost:8080/api/prodotti', {
 

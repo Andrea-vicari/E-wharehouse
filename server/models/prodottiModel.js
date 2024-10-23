@@ -66,6 +66,10 @@ const prodottiSchema = new mongoose.Schema({
             type: String,
             required: false,
             default: "file_1715325537969.png"
+    },
+    codiceUnivoco:{
+        type: String,
+        required: false
     }
 
 },{ timestamps:true })

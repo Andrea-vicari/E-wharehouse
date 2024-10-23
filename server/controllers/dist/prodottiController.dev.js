@@ -2,7 +2,11 @@
 
 var Prodotti = require('../models/prodottiModel');
 
-var mongoose = require('mongoose'); // Get all Prodotti: OK
+var mongoose = require('mongoose');
+
+var multer = require('multer');
+
+var path = require('path'); // Get all Prodotti: OK
 
 
 var viewAllProdotti = function viewAllProdotti(req, res) {
@@ -32,13 +36,13 @@ var viewAllProdotti = function viewAllProdotti(req, res) {
 
 
 var createNewProdotti = function createNewProdotti(req, res) {
-  var _req$body, nome, categoria, tipologia, descrizione, peso, scaffale, campata, ripiano, cassetta, prodotti;
+  var _req$body, nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, codiceUnivoco, prodotti;
 
   return regeneratorRuntime.async(function createNewProdotti$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          _req$body = req.body, nome = _req$body.nome, categoria = _req$body.categoria, tipologia = _req$body.tipologia, descrizione = _req$body.descrizione, peso = _req$body.peso, scaffale = _req$body.scaffale, campata = _req$body.campata, ripiano = _req$body.ripiano, cassetta = _req$body.cassetta; // Add doc to the Mongo DB
+          _req$body = req.body, nome = _req$body.nome, categoria = _req$body.categoria, tipologia = _req$body.tipologia, descrizione = _req$body.descrizione, codice = _req$body.codice, condizione = _req$body.condizione, peso = _req$body.peso, scaffale = _req$body.scaffale, campata = _req$body.campata, ripiano = _req$body.ripiano, cassetta = _req$body.cassetta, marca = _req$body.marca, modello = _req$body.modello, versione = _req$body.versione, annoImmatricolazione = _req$body.annoImmatricolazione, codiceUnivoco = _req$body.codiceUnivoco; // Add doc to the Mongo DB
 
           _context2.prev = 1;
           _context2.next = 4;
@@ -47,11 +51,18 @@ var createNewProdotti = function createNewProdotti(req, res) {
             categoria: categoria,
             tipologia: tipologia,
             descrizione: descrizione,
+            codice: codice,
+            condizione: condizione,
             peso: peso,
             scaffale: scaffale,
             campata: campata,
             ripiano: ripiano,
-            cassetta: cassetta
+            cassetta: cassetta,
+            marca: marca,
+            modello: modello,
+            versione: versione,
+            annoImmatricolazione: annoImmatricolazione,
+            codiceUnivoco: codiceUnivoco
           }));
 
         case 4:
