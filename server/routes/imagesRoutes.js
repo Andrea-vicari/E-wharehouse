@@ -23,20 +23,21 @@ const upload = multer({ storage: storage });
 
 router.post('/upload', upload.single('file'),(req, res) => {
       const {image} = req.file
-      
-	
+
+
 	console.log("*************")
 	console.log("*************")
 	console.log("*************")
 	console.log("Also sprach Zarathustra")
 	console.log(req.file)
 	console.log("Minima Moralia")
-	    
-	
-	Images.create({immagine:req.file.filename, idProdotto:req.id})
+	console.log(req.body)
+
+
+	Images.create({immagine:req.file.filename, idProdotto:req.body.idProdotto})
 	.then(result=>res.json(result))
 	.catch(error=>console.log(error))
-    
+
 });
 
 
