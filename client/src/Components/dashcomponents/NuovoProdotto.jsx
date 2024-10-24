@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux'
 import Uploader from "./Uploader";
 import uniqid from 'uniqid';
 
-var unicoID = uniqid()
+
 
 
 const NuovoProdotto = () =>{
+
+  var unicoID = uniqid()
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -17,19 +19,13 @@ const NuovoProdotto = () =>{
   themeType == "ligth" ? bgType = "bg-light" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-
-
-
   var today = new Date().toDateString()
 
   console.log(today)
 
- 
   console.log("Im am unique")
   console.log(unicoID)
 
-  console.log()
-    //const [user, setUser] = useState('')
 
     // Nuovi usestate
     const [nome, setNome] = useState('')
@@ -46,7 +42,6 @@ const NuovoProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    //const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
     const [codUni, setCodUni] = useState('')
@@ -55,7 +50,6 @@ const NuovoProdotto = () =>{
 
     // Use state per immagini
     const [file, setFile ] = useState()
-    const [good, setGood] = useState(null)
 
 
 
@@ -63,7 +57,7 @@ const NuovoProdotto = () =>{
 
         e.preventDefault()
 
-        // setUser(userID)
+
         setToday(today)
         setCodUni(unicoID)
         openModal()
