@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 
 router.post('/upload', upload.single('file'),(req, res) => {
       const {image} = req.file
-     
+      
 	
 	console.log("*************")
 	console.log("*************")

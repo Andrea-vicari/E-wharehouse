@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo-magazzino-footer.svg";
 import { useSelector } from 'react-redux'
-import Uploader from "./Uploader";
-import uniqid from 'uniqid';
 
-var unicoID = uniqid()
 
+var userID
 
 const NuovoProdotto = () =>{
 
@@ -17,19 +15,17 @@ const NuovoProdotto = () =>{
   themeType == "ligth" ? bgType = "bg-light" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
+  let clicked = useLocation();
 
+  userID = clicked.state
 
 
   var today = new Date().toDateString()
 
   console.log(today)
 
- 
-  console.log("Im am unique")
-  console.log(unicoID)
 
-  console.log()
-    //const [user, setUser] = useState('')
+    const [user, setUser] = useState('')
 
     // Nuovi usestate
     const [nome, setNome] = useState('')
@@ -46,10 +42,9 @@ const NuovoProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    //const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
+    const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
-    const [codUni, setCodUni] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
 
@@ -63,11 +58,10 @@ const NuovoProdotto = () =>{
 
         e.preventDefault()
 
-        // setUser(userID)
+        setUser(userID)
         setToday(today)
-        setCodUni(unicoID)
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine, unicoID}
+        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, immagine}
 
         const response = await fetch('http://localhost:8080/api/prodotti', {
 
@@ -103,9 +97,8 @@ const NuovoProdotto = () =>{
             setMarca('')
             setModello('')
             setVersione('')
-            // setAnnoImmatricolazione('')
+            setAnnoImmatricolazione('')
             setimmagine('')
-            setCodUni('')
             setError(null)
             setemptyFields([])
         }
@@ -343,16 +336,23 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <Uploader />
-              <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
-  		      </button>
+              <div className="mb-3">
+                <label htmlFor="Immagine" className="text-primary">
+                  <strong>Carica immagine</strong>
+                </label>
+
+              <Link to={`/uploadimagepage/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+                Carica Immagine
+              </Link>
+              </div>
 
 
-              {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
-            </form>
-            <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+
+              <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
+              {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
+            </form>
 
             {/** MODALE */}
             <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_prodotto">

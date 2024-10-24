@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo-magazzino-footer.svg";
 import { useSelector } from 'react-redux'
 import Uploader from "./Uploader";
-import uniqid from 'uniqid';
+//import uniqid from 'uniqid';
 
-var unicoID = uniqid()
 
 
 const NuovoProdotto = () =>{
@@ -24,11 +23,12 @@ const NuovoProdotto = () =>{
 
   console.log(today)
 
- 
-  console.log("Im am unique")
-  console.log(unicoID)
+  //const unicoID = uniqid()
 
-  console.log()
+  //console.log("Im am unique")
+  //console.log(typeof unicoID)
+
+
     //const [user, setUser] = useState('')
 
     // Nuovi usestate
@@ -46,10 +46,8 @@ const NuovoProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    //const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
-    const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
-    const [codUni, setCodUni] = useState('')
+    // const [codUni, setCodUni] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
 
@@ -65,9 +63,9 @@ const NuovoProdotto = () =>{
 
         // setUser(userID)
         setToday(today)
-        setCodUni(unicoID)
+        // setCodUni(unicoID)
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine, unicoID}
+        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione}
 
         const response = await fetch('http://localhost:8080/api/prodotti', {
 
@@ -103,9 +101,6 @@ const NuovoProdotto = () =>{
             setMarca('')
             setModello('')
             setVersione('')
-            // setAnnoImmatricolazione('')
-            setimmagine('')
-            setCodUni('')
             setError(null)
             setemptyFields([])
         }
