@@ -3,9 +3,11 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 
-function Uploader() {
+function Uploader({passaggio}) {
 
 const id= 123456
+
+console.log(passaggio)
 
 const [file, setFile] = useState(null);
 const [idProdotto, setidProdotto] = useState(null);

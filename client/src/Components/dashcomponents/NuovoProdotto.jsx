@@ -337,7 +337,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <Uploader />
+              <Uploader passaggio={'figa'}/>
               <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
   		      </button>
 
