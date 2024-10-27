@@ -19,12 +19,12 @@ const prodottiSchema = new mongoose.Schema({
         required: false
     },
     codice:{
-    type: Number,
-    required: false
+        type: Number,
+        required: false
     },
     condizione:{
-    type: String,
-    required: false
+        type: String,
+        required: false
     },
     peso:{
         type: Number,

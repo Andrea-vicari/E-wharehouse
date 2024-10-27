@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux'
 import Uploader from "./Uploader";
 import uniqid from 'uniqid';
 
-
+var unicoID = uniqid()
 
 
 const NuovoProdotto = () =>{
 
-  var unicoID = uniqid()
+  
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -337,7 +337,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <Uploader passaggio={'figa'}/>
+              <Uploader identificativoImg={unicoID}/>
               <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
   		      </button>
 

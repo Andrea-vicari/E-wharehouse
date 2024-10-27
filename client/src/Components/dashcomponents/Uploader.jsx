@@ -3,21 +3,22 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 
-function Uploader({passaggio}) {
+function Uploader({identificativoImg}) {
 
-const id= 123456
 
-console.log(passaggio)
+
+console.log("From NuovoProd comp")
+console.log(identificativoImg)
 
 const [file, setFile] = useState(null);
 const [idProdotto, setidProdotto] = useState(null);
 
 const handleSubmit =  (event) => {
   event.preventDefault(event);
-  	setidProdotto(id)
+  	setidProdotto(identificativoImg)
   	const formdata = new FormData()
   	formdata.append('file', file)
-  	formdata.append('idProdotto', id)
+  	formdata.append('idProdotto', identificativoImg)
 
 	axios.post('http://localhost:8080/upload', formdata)
 	 .then(res=>console.log(res))

@@ -8,13 +8,10 @@ var path = require('path');
 
 var Images = require('../models/imageModel');
 
-var mongoose = require('mongoose');
-
 var router = express.Router();
 
 var _require = require('../controllers/imageController'),
-    viewAllImages = _require.viewAllImages,
-    uploadImages = _require.uploadImages; // Configure multer storage
+    viewAllImages = _require.viewAllImages; // Configure multer storage
 
 
 var storage = multer.diskStorage({
@@ -38,7 +35,7 @@ router.post('/upload', upload.single('file'), function (req, res) {
   console.log("Minima Moralia");
   console.log(req.body);
   Images.create({
-    immagine: req.file.filename,
+    immagineCaricata: req.file.filename,
     idProdotto: req.body.idProdotto
   }).then(function (result) {
     return res.json(result);

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const imagesSchema = new mongoose.Schema({
 
-    immagine:{
+    immagineCaricata:{
             type: String,
             required: false
                	},

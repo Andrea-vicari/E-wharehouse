@@ -2,12 +2,12 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const Images = require('../models/imageModel');
-const mongoose = require('mongoose');
+
 
 
 const router = express.Router();
 
-const {viewAllImages, uploadImages} = require('../controllers/imageController');
+const {viewAllImages} = require('../controllers/imageController');
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -34,7 +34,7 @@ router.post('/upload', upload.single('file'),(req, res) => {
 	console.log(req.body)
 
 
-	Images.create({immagine:req.file.filename, idProdotto:req.body.idProdotto})
+	Images.create({immagineCaricata:req.file.filename, idProdotto:req.body.idProdotto})
 	.then(result=>res.json(result))
 	.catch(error=>console.log(error))
 
