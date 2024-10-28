@@ -59,10 +59,28 @@ const deleteProdotto = async (req, res)=> {
       res.status(200).json(Prodotti);
 }
 
+// Get a specific prodotti
+const vediSingoloProd = async (req, res)=> {
+    console.log("======")
+    console.log("Req from /id")
+    console.log("Vedi singolo prodotto")
+
+    const { id } = req.params;
+
+    const prodotti = await Prodotti.find({"unicoID":id});
+   // const prodotti = await Prodotti.findById(id);
+
+    if(!prodotti){
+      return res.status(400).json({error: "No prodotti found"})
+    }
+    res.status(200).json(prodotti);
+}
+
 
 
 module.exports = {
     createNewProdotti,
     viewAllProdotti,
-    deleteProdotto
+    deleteProdotto,
+    vediSingoloProd
 }

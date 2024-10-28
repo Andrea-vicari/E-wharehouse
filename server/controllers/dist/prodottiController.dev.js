@@ -36,17 +36,33 @@ var viewAllProdotti = function viewAllProdotti(req, res) {
 
 
 var createNewProdotti = function createNewProdotti(req, res) {
-  var nome, prodotti;
+  var _req$body, nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID, prodotti;
+
   return regeneratorRuntime.async(function createNewProdotti$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          nome = req.body.nome; // Add doc to the Mongo DB
+          _req$body = req.body, nome = _req$body.nome, categoria = _req$body.categoria, tipologia = _req$body.tipologia, descrizione = _req$body.descrizione, codice = _req$body.codice, condizione = _req$body.condizione, peso = _req$body.peso, scaffale = _req$body.scaffale, campata = _req$body.campata, ripiano = _req$body.ripiano, cassetta = _req$body.cassetta, marca = _req$body.marca, modello = _req$body.modello, versione = _req$body.versione, annoImmatricolazione = _req$body.annoImmatricolazione, unicoID = _req$body.unicoID; // Add doc to the Mongo DB
 
           _context2.prev = 1;
           _context2.next = 4;
           return regeneratorRuntime.awrap(Prodotti.create({
-            nome: nome
+            nome: nome,
+            categoria: categoria,
+            tipologia: tipologia,
+            descrizione: descrizione,
+            codice: codice,
+            condizione: condizione,
+            peso: peso,
+            scaffale: scaffale,
+            campata: campata,
+            ripiano: ripiano,
+            cassetta: cassetta,
+            marca: marca,
+            modello: modello,
+            versione: versione,
+            annoImmatricolazione: annoImmatricolazione,
+            unicoID: unicoID
           }));
 
         case 4:
@@ -121,10 +137,50 @@ var deleteProdotto = function deleteProdotto(req, res) {
       }
     }
   });
+}; // Get a specific prodotti
+
+
+var vediSingoloProd = function vediSingoloProd(req, res) {
+  var id, prodotti;
+  return regeneratorRuntime.async(function vediSingoloProd$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          console.log("======");
+          console.log("Req from /id");
+          console.log("Vedi singolo prodotto");
+          id = req.params.id;
+          _context4.next = 6;
+          return regeneratorRuntime.awrap(Prodotti.find({
+            "unicoID": id
+          }));
+
+        case 6:
+          prodotti = _context4.sent;
+
+          if (prodotti) {
+            _context4.next = 9;
+            break;
+          }
+
+          return _context4.abrupt("return", res.status(400).json({
+            error: "No prodotti found"
+          }));
+
+        case 9:
+          res.status(200).json(prodotti);
+
+        case 10:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  });
 };
 
 module.exports = {
   createNewProdotti: createNewProdotti,
   viewAllProdotti: viewAllProdotti,
-  deleteProdotto: deleteProdotto
+  deleteProdotto: deleteProdotto,
+  vediSingoloProd: vediSingoloProd
 };

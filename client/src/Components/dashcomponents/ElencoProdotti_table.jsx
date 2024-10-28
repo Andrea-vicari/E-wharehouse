@@ -2,13 +2,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
-// import userlistImg from '../../assets/images/UserList.jpg'
-// import elencoPren from '../../assets/images/elencoPrenotazioni_640.jpg'
-// import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
-// import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
-// import ckeckClosed from '../../assets/images/weights-3483560_640.jpg'
-// import { Link } from 'react-router-dom';
-// import UserProfile from '../dashcomponents/UserProfile'
+import userlistImg from '../../assets/images/UserList.jpg'
+import elencoPren from '../../assets/images/elencoPrenotazioni_640.jpg'
+import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
+import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
+import ckeckClosed from '../../assets/images/weights-3483560_640.jpg'
+import { Link } from 'react-router-dom';
+import UserProfile from '../dashcomponents/UserProfile'
 
 function ElencoProdotti() {
 
@@ -111,9 +111,9 @@ function ElencoProdotti() {
 
       <section className={"py-3" + " " + bgType + " " + textType}>
 
-        <div className="container-fluid mt-0 pt-0">
+        <div className="container">
         <p>Filtra per:</p>
-                    <div className="row border-2 border-info">
+                    <div className="row mb-3 border-2 border-info">
                         <div className="col-sm-2 accordion accordion-flush">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
@@ -141,97 +141,50 @@ function ElencoProdotti() {
 
                     </div>
 
-
-        </div>
-        <div className="container-fluid  mt-0 pt-0">
+          <div className="container">
             <div className="row mb-3">
 
-              <div className="col-md-12">
-                <div className="p-3 mb-2">
-                <div className="row bg-body-tertiary pt-3">
-                    <div className="col-sm-1">
-                      <p>IMMAGINE</p>
+              <div className="col-md-12 mt-5">
+                <div className="p-3 bg-body-tertiary border rounded-3 mb-2">
+                  <div className="table-responsive">
+                    <table className="table table-striped">
+                      <thead>
+                        <tr>
 
-                    </div>
-                    <div className="col-sm-1">
-                      <p>CODICE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>NOME</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>ID</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>CATEGORIA</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MARCA</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MODELLO</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>VERSIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>UBICAZIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>PESO</p>
-                    </div>
-                    <div className="col-sm-2">
-                      <p>GESTISCI</p>
-                    </div>
-                </div>
-                {prodotto.map((e) => {
-                return (
-                <div className="row pt-2"key={e._id}>
-                    <div className="col-sm-1">
-                      <p>IMMAGINE</p>
+                          <th scope="col">Immagine</th>
+                          <th scope="col">Codice Int.</th>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Categoria</th>
+                          <th scope="col">Marca</th>
+                          <th scope="col">Modello</th>
+                          <th scope="col">Anno</th>
+                          <th scope="col">Peso</th>
+                          <th scope="col">Ubicazione</th>
 
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.unicoID}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.nome}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.codice}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>CATEGORIA</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MARCA</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MODELLO</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>VERSIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>UBICAZIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>PESO</p>
-                    </div>
-                    <div className="col-sm-2">
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
-                        <i className='bi bi-zoom-in'></i>
-                      </button>
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
-                        <i className='bi bi-trash'></i>
-                      </button>
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
-                        <i className='bi bi-printer'></i>
-                      </button>
-                    </div>
-                </div>
-                )
-                })}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {prodotto.map((e) => {
+                          return (
+                            <tr keyprodotto={e._id} key={e._id}>
+                              <td><img src={`http://localhost:8080/images/${e.immagine}`} style={{ width: 80 }} /></td>
+                              <td>{e.unicoID}</td>
+                              <td>{e.nome}</td>
+                              <td>{e.categoria}</td>
+                              <td>{e.marca}</td>
+                              <td>{e.modello}</td>
+                              <td>{e.anno}</td>
+                              <td>{e.peso}</td>
+                              <td>{e.scaffale}</td>
+                            </tr>
+                          )
+                        })}
+
+                      </tbody>
+                    </table>
+                  </div>
+
+
                 </div>
 
 
@@ -243,6 +196,8 @@ function ElencoProdotti() {
 
             </div>
           </div>
+        </div>
+
       </section>
 
     </React.Fragment>
