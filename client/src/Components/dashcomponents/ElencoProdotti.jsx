@@ -100,6 +100,13 @@ function ElencoProdotti() {
   });
   */
 
+    function closeModalDelete(){
+      document.getElementById('modale_delete').classList.remove("d-block")
+    }
+    function openModalDelete(){
+      document.getElementById('modale_delete').classList.add("d-block")
+    }
+
 
   return (
     <React.Fragment>
@@ -222,7 +229,7 @@ function ElencoProdotti() {
                       <button type="button" className="btn btn-sm btn-outline-primary mx-1">
                         <i className='bi bi-zoom-in'></i>
                       </button>
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
+                      <button type="button" className="btn btn-sm btn-outline-primary mx-1" onClick={openModalDelete}>
                         <i className='bi bi-trash'></i>
                       </button>
                       <button type="button" className="btn btn-sm btn-outline-primary mx-1">
@@ -239,6 +246,36 @@ function ElencoProdotti() {
 
               </div>
 
+	       {/** MODALE CANCELLAZIONE */}
+            <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_delete">
+              <div className="modal-dialog-centered modal bg-dark" role="document">
+                <div className="modal-content rounded-4 shadow bg-dark" >
+                  <div className="modal-header d-flex justify-content-between">
+                  
+                    <h2 className="modal-title text-white text-center">CANCELLAZIONE PRODOTTO</h2>
+
+                  </div>
+                  <div className="modal-body py-3 text-white">
+
+                  <h4 className="text-white mt-3 fw-bold">Stai per cancellare il prodotto</h4>
+                                       <button type="button" onClick={()=>closeModalDelete()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
+                      <i className='fa fa-times px-2 fs-4'></i>Chiudi
+                        </button>
+
+                    </div>
+
+                  <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+
+                    <div className="modal-footer">
+                      <button type="button" onClick={()=>closeModalDelete()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
+                      <i className='fa fa-times px-2 fs-4'></i>Chiudi
+                        </button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+            {/** FINE MODALE */}
 
 
             </div>
@@ -250,3 +287,4 @@ function ElencoProdotti() {
 }
 
 export default ElencoProdotti
+
