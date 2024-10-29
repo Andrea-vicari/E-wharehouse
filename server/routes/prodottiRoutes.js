@@ -17,7 +17,7 @@ router.get('/', viewAllProdotti);
 router.get('/:id', vediSingoloProd);
 
 // Delete
-router.delete('/:id', deleteProdotto);
+router.delete('/delete/:id', deleteProdotto);
 
 // Update
 

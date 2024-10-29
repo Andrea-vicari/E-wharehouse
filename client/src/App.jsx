@@ -28,6 +28,7 @@ import SingleUserPage from './pages/dashpages/SingleUserPage';
 // import UploadImagePage from './pages/dashpages/UploadImagePage';
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
+import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
 // import NewBookingPage from './pages/dashpages/NewBookingPage';
 // import SchedaTrainerPage from './pages/dashpages/SchedaTrainerPage';
 // import SchedaUtentePage from './pages/dashpages/SchedaUtentePage';
@@ -71,7 +72,7 @@ function App() {1
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
             <Route path="/userslist" element={<UsersList />} />
-
+		  <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
             <Route path="/elencoprodotti" element={<ElencoProdottiPage />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/uploader" element={<UploaderPage />} />

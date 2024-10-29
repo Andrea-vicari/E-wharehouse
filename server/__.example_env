@@ -1,0 +1,12 @@
+andreavicari77
+veNZVaPVnQENkOtb
+mongodb+srv://andreavicari77:veNZVaPVnQENkOtb@cluster0.aefeicn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+npm install bcryptjs cors dotenv express jsonwebtoken mongodb mongoose nodemon validator nodemailer
+
+{
+    "email": "andrea.vicari77@gmail.com",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjJiYjkzZTA0OTUwZTZhMzRmNjE1YmYiLCJpYXQiOjE3MTQxNTM2NzQsImV4cCI6MTcxNDQxMjg3NH0.30JDZ3-ZAh3vZdR3wfKF-oi1sZ9WFyD_D48Li85NVLk",
+    "user_id": "662bb93e04950e6a34f615bf",
+    "role": "user"
+}

@@ -359,7 +359,7 @@ const NuovoProdotto = () =>{
                   </div>
                   <div className="modal-body py-3 text-white">
 
-                  <h4 className="text-white mt-3 fw-bold">Allenamento inserito correttamente!</h4>
+                  <h4 className="text-white mt-3 fw-bold">Prodotto inserito correttamente!</h4>
                     </div>
 
                   <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

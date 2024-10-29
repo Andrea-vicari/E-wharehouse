@@ -45,7 +45,12 @@ const createNewProdotti = async (req, res)=> {
 const deleteProdotto = async (req, res)=> {
 
     const { id } = req.params;
+    
+     console.log("== KINGBOY ==")
+    console.log("RICHIESTA CANCELLAZIONE PRODOTTO")
 
+	
+    
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: "Nessun prodotto trovato"})
     }
@@ -53,9 +58,10 @@ const deleteProdotto = async (req, res)=> {
     const prodotti = await Prodotti.findOneAndDelete({_id: id})
 
     if(!prodotti){
-        console.log({error: error.message})
+        //console.log({error: error.message})
         return res.status(400).json({error: "Nessun prodotto trovato"})
       }
+      
       res.status(200).json(Prodotti);
 }
 
@@ -67,8 +73,8 @@ const vediSingoloProd = async (req, res)=> {
 
     const { id } = req.params;
 
-    const prodotti = await Prodotti.find({"unicoID":id});
-   // const prodotti = await Prodotti.findById(id);
+    // const prodotti = await Prodotti.find({"unicoID":id});
+    const prodotti = await Prodotti.findById(id);
 
     if(!prodotti){
       return res.status(400).json({error: "No prodotti found"})
