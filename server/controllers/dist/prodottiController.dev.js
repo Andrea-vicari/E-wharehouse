@@ -2,11 +2,7 @@
 
 var Prodotti = require('../models/prodottiModel');
 
-var mongoose = require('mongoose');
-
-var multer = require('multer');
-
-var path = require('path'); // Get all Prodotti: OK
+var mongoose = require('mongoose'); // Get all Prodotti: OK
 
 
 var viewAllProdotti = function viewAllProdotti(req, res) {
@@ -97,9 +93,11 @@ var deleteProdotto = function deleteProdotto(req, res) {
       switch (_context3.prev = _context3.next) {
         case 0:
           id = req.params.id;
+          console.log("== KINGBOY ==");
+          console.log("RICHIESTA CANCELLAZIONE PRODOTTO");
 
           if (mongoose.Types.ObjectId.isValid(id)) {
-            _context3.next = 3;
+            _context3.next = 5;
             break;
           }
 
@@ -107,31 +105,28 @@ var deleteProdotto = function deleteProdotto(req, res) {
             error: "Nessun prodotto trovato"
           }));
 
-        case 3:
-          _context3.next = 5;
+        case 5:
+          _context3.next = 7;
           return regeneratorRuntime.awrap(Prodotti.findOneAndDelete({
             _id: id
           }));
 
-        case 5:
+        case 7:
           prodotti = _context3.sent;
 
           if (prodotti) {
-            _context3.next = 9;
+            _context3.next = 10;
             break;
           }
 
-          console.log({
-            error: error.message
-          });
           return _context3.abrupt("return", res.status(400).json({
             error: "Nessun prodotto trovato"
           }));
 
-        case 9:
-          res.status(200).json(Prodotti);
-
         case 10:
+          res.status(200).json(prodotti);
+
+        case 11:
         case "end":
           return _context3.stop();
       }
@@ -149,11 +144,10 @@ var vediSingoloProd = function vediSingoloProd(req, res) {
           console.log("======");
           console.log("Req from /id");
           console.log("Vedi singolo prodotto");
-          id = req.params.id;
+          id = req.params.id; // const prodotti = await Prodotti.find({"unicoID":id});
+
           _context4.next = 6;
-          return regeneratorRuntime.awrap(Prodotti.find({
-            "unicoID": id
-          }));
+          return regeneratorRuntime.awrap(Prodotti.findById(id));
 
         case 6:
           prodotti = _context4.sent;

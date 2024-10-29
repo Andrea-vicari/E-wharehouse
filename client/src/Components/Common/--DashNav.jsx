@@ -37,7 +37,7 @@ function NavbarFixedTop() {
   return (
     <>
         <div className='container'>
-        <nav className="navbar navbar-expand-lg bg-dark fixed-top" data-bs-theme={count}>
+        <nav className="navbar bg-body-tertiary fixed-top border-bottom border-2" data-bs-theme={count}>
         <div className="container">
             <Link className="navbar-brand d-flex" to={'/'}>
             <img src={logo} style={{width:200}}/>

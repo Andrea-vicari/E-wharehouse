@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { UseAuthContext } from "../../hooks/UseAuthContext";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
@@ -16,27 +15,30 @@ function CancellaProdotto() {
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-  const role = useSelector((state) => state.setRole.value)
 
-  const { user } = UseAuthContext()
-  
+
   let clicked = useLocation();
-  
+
   prodDaCancID = clicked.state
-  
+
   console.log('ID del prodotto da cancellare')
   console.log(prodDaCancID)
-  
-useEffect(() => {
-      axios.delete(`http://localhost:8080/api/prodotti/delete/${prodDaCancID}`)
-      .then(res => {
-          if(res.data.deleted) {
-              navigate('/dashboard')
-          }
-      }).catch(err => console.log(err))
-    }, [])
- 
- 
+
+
+
+ const cancellaProd = () => {
+
+  useEffect(() => {
+    axios.delete(`http://localhost:8080/api/prodotti/delete/${prodDaCancID}`)
+    .then(res => {
+        if(res.ok) {
+            console.log('Cancellato', json)
+            navigate('/dashboard')
+        }
+    }).catch(err => console.log(err))
+  }, [])
+
+ }
 
 
 
@@ -59,10 +61,13 @@ useEffect(() => {
                 <div className="row bg-body-tertiary pt-3">
                    <div className="col-sm-10">
                       <p className="text-center">STAI PER CANCELLARE IL PRODOTTO</p>
+                      <button type="button" onClick={cancellaProd()} className="btn btn-sm btn-outline-primary mx-1">
+                        <i className='bi bi-trash'></i>
+                      </button>
                     </div>
- 
+
                 </div>
-                
+
                 </div>
 
 

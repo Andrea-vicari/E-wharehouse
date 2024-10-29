@@ -1,7 +1,6 @@
 const Prodotti = require('../models/prodottiModel');
 const mongoose = require('mongoose');
-const multer = require('multer');
-const path = require('path');
+
 
 
 
@@ -38,19 +37,16 @@ const createNewProdotti = async (req, res)=> {
 
 }
 
-
-
-
 // Delete
 const deleteProdotto = async (req, res)=> {
 
     const { id } = req.params;
-    
+
      console.log("== KINGBOY ==")
     console.log("RICHIESTA CANCELLAZIONE PRODOTTO")
 
-	
-    
+
+
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: "Nessun prodotto trovato"})
     }
@@ -61,8 +57,8 @@ const deleteProdotto = async (req, res)=> {
         //console.log({error: error.message})
         return res.status(400).json({error: "Nessun prodotto trovato"})
       }
-      
-      res.status(200).json(Prodotti);
+
+      res.status(200).json(prodotti);
 }
 
 // Get a specific prodotti
