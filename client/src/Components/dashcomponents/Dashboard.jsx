@@ -1,13 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
-import userlistImg from '../../assets/images/UserList.jpg'
-import elencoPren from '../../assets/images/elencoPrenotazioni_640.jpg'
-import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
-import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
-import ckeckClosed from '../../assets/images/weights-3483560_640.jpg'
 import { Link } from 'react-router-dom';
-import UserProfile from '../dashcomponents/UserProfile'
+
 
 function Dashboard() {
 
@@ -67,32 +62,8 @@ function Dashboard() {
                                     </div>
 
                                 </div>
-                                <div className="p-3 bg-body-tertiary border rounded-3 mb-2">
-                                    <div className='row'>
-                                        <div className="col-md-3">
-                                            <img src={elencoPren} className="img-fluid rounded mb-2"/>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <h2>Controlla le prenotazioni</h2>
-                                                <p>Controlla lo stato delle tue prenotazioni</p>
-                                                <Link to="/elencoprenotazioniutente" type="button" className="btn btn-sm btn-outline-primary">Controlla</Link>
-                                            </div>
-                                    </div>
 
-                                </div>
-                                <div className="p-3 bg-body-tertiary border rounded-3 mb-2">
-                                    <div className='row'>
-                                        <div className="col-md-3">
-                                            <img src={ckeckClosed} className="img-fluid rounded mb-2"/>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <h2>Schede Completate</h2>
-                                                <p>Vedi le schede completate</p>
-                                                <Link to="/elencoschedechiusepage" type="button" className="btn btn-sm btn-outline-primary">Vedi</Link>
-                                            </div>
-                                    </div>
 
-                                </div>
 
                             </div>
 

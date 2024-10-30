@@ -23,9 +23,8 @@ import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
-import UsersList from './pages/dashpages/UsersListPage';
-import SingleUserPage from './pages/dashpages/SingleUserPage';
-// import UploadImagePage from './pages/dashpages/UploadImagePage';
+
+
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
@@ -71,7 +70,7 @@ function App() {1
             <Route path="/register" element={!user ? <RegisterPage/> : <Navigate to="/login"/>}/>
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
-            <Route path="/userslist" element={<UsersList />} />
+
 		  <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
             <Route path="/elencoprodotti" element={<ElencoProdottiPage />} />
             <Route path="/resetpassword" element={<ResetPassword />} />

@@ -10,7 +10,7 @@ var unicoID = uniqid()
 
 const NuovoProdotto = () =>{
 
-  
+
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -337,7 +337,9 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
+
               <Uploader identificativoImg={unicoID}/>
+
               <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
   		      </button>
 

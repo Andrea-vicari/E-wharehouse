@@ -25,13 +25,13 @@ function CancellaProdotto() {
   console.log(prodDaCancID)
 
 
-
  const cancellaProd = () => {
 
   useEffect(() => {
     axios.delete(`http://localhost:8080/api/prodotti/delete/${prodDaCancID}`)
     .then(res => {
         if(res.ok) {
+        	 console.log(res.json)
             console.log('Cancellato', json)
             navigate('/dashboard')
         }
@@ -46,11 +46,7 @@ function CancellaProdotto() {
     <React.Fragment>
 
       <section className={"py-3" + " " + bgType + " " + textType}>
-      <div className='container-fluid pt-1 mt-5'>
-        <div className='container text-center mt-5 pb-1'>
-          <h1 className='text-primary text-uppercase'>Cancella Prodotto</h1>
-        </div>
-      </div>
+
 
 
         <div className="container-fluid  mt-0 pt-0">
@@ -59,11 +55,14 @@ function CancellaProdotto() {
               <div className="col-md-12">
                 <div className="p-3 mb-2">
                 <div className="row bg-body-tertiary pt-3">
-                   <div className="col-sm-10">
-                      <p className="text-center">STAI PER CANCELLARE IL PRODOTTO</p>
-                      <button type="button" onClick={cancellaProd()} className="btn btn-sm btn-outline-primary mx-1">
-                        <i className='bi bi-trash'></i>
-                      </button>
+                   <div className="col-sm-10 text-center">
+                   <i className='bi bi bi-check-square fs-1 text-success py-5'></i>
+
+
+                      <p className="text-center">PRODOTTO CANCELLATO CORRETTAMENTE</p>
+                      <Link to="/elencoprodotti" type="button" className="btn btn-large btn-outline-primary mx-1">
+                        <i className='bi bi-arrow-left-circle'></i> TORNA ALL'ELENCO PRODOTTI
+                      </Link>
                     </div>
 
                 </div>

@@ -19,7 +19,6 @@ router.get('/:id', vediSingoloProd);
 // Delete
 router.delete('/delete/:id', deleteProdotto);
 
-// Update
 
 
 // Post

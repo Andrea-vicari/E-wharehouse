@@ -3,12 +3,6 @@ import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-// import userlistImg from '../../assets/images/UserList.jpg'
-// import elencoPren from '../../assets/images/elencoPrenotazioni_640.jpg'
-// import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
-// import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
-// import ckeckClosed from '../../assets/images/weights-3483560_640.jpg'
-// import UserProfile from '../dashcomponents/UserProfile'
 
 function ElencoProdotti() {
 
@@ -148,6 +142,7 @@ function ElencoProdotti() {
 
               <div className="col-md-12">
                 <div className="p-3 mb-2">
+                
                 <div className="row bg-body-tertiary pt-3">
                     <div className="col-sm-1">
                       <p>IMMAGINE</p>
@@ -188,7 +183,7 @@ function ElencoProdotti() {
                 return (
                 <div className="row pt-2"key={e._id}>
                     <div className="col-sm-1">
-                      <p>IMMAGINE</p>
+                      <img src={`http://localhost:8080/images/${e.immagine}`} style={{ width: 80 }} />
 
                     </div>
                     <div className="col-sm-1">

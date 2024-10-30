@@ -19,7 +19,7 @@ const prodottiSchema = new mongoose.Schema({
         required: false
     },
     codice:{
-        type: Number,
+        type: String,
         required: false
     },
     condizione:{
@@ -65,7 +65,7 @@ const prodottiSchema = new mongoose.Schema({
     immagine:{
             type: String,
             required: false,
-            default: "file_1715325537969.png"
+            default: "prodottoThumb.png"
     },
     unicoID:{
         type: String,

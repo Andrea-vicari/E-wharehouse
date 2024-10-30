@@ -21,6 +21,7 @@ const handleSubmit =  (event) => {
   	formdata.append('idProdotto', identificativoImg)
 
 	axios.post('http://localhost:8080/upload', formdata)
+	
 	 .then(res=>console.log(res))
 	 .catch(err=>console.log(err))
 

@@ -16,7 +16,7 @@ function NavbarFixedTop() {
 
   return (
     <>
-        <div className='container'>
+        <div className='container-fluid'>
         <nav className="navbar bg-body-tertiary" aria-label="Light offcanvas navbar">
     <div className="container-fluid">
       <a className="navbar-brand" href="#">Light offcanvas navbar</a>
@@ -29,7 +29,7 @@ function NavbarFixedTop() {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          <ul classNamr="navbar-nav navbar-dark justify-content-end flex-grow-1 pe-3">
+          <ul className="navbar-nav navbar-dark justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
