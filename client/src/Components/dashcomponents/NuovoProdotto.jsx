@@ -368,7 +368,7 @@ const NuovoProdotto = () =>{
 
                     <div className="modal-footer">
                       <button type="button" onClick={()=>closeModal()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
-                      <i className='fa fa-times px-2 fs-4'></i>Chiudi
+                      <i className='bi bi-x-circle px-2 fs-4'></i>Chiudi
                         </button>
                     </div>
                   </div>

@@ -107,8 +107,8 @@ function ElencoProdotti() {
 
         <div className="container-fluid mt-0 pt-0">
         <p>Filtra per:</p>
-                    <div className="row border-2 border-info">
-                        <div className="col-sm-2 accordion accordion-flush">
+                    <div className="row border d-flex align-items-center">
+                        <div className="col-sm-2 accordion accordion-flush border">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -120,7 +120,7 @@ function ElencoProdotti() {
                                 </div>
                             </div>
                        </div>
-                       <div className="col-sm-2 accordion accordion-flush">
+                       <div className="col-sm-2 accordion accordion-flush border">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -132,6 +132,13 @@ function ElencoProdotti() {
                                 </div>
                             </div>
                        </div>
+                       <div className="col-sm-8 d-flex justify-content-end align-items-center">
+                            <Link to="nuovoprodotto" type="button" className="btn btn-success">
+                            	<i className="bi bi-plus-circle mx-2"> 
+                            	</i>Aggiungi Prodotto
+                            </Link>
+                       </div>
+
 
                     </div>
 

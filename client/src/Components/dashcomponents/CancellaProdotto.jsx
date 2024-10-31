@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useEffect } from "react";
-import {  Link, useLocation, useNavigate } from 'react-router-dom';
+import {  Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import logo from "../../assets/images/logo-magazzino-footer.svg";
 import axios from 'axios'
 
 var prodDaCancID
@@ -15,7 +16,7 @@ function CancellaProdotto() {
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-
+  const navigate = useNavigate();
 
   let clicked = useLocation();
 
@@ -23,24 +24,24 @@ function CancellaProdotto() {
 
   console.log('ID del prodotto da cancellare')
   console.log(prodDaCancID)
-
+	
+                        function closeModal(){
+				      document.getElementById('modale_prodotto').classList.remove("d-block")
+				      navigate("/elencoprodotti");
+				    }
+				    function openModal(){
+				      document.getElementById('modale_prodotto').classList.add("d-block")
+				    }
+	
 
  const cancellaProd = () => {
-
-  useEffect(() => {
+	
+		
+	openModal()
+ 
     axios.delete(`http://localhost:8080/api/prodotti/delete/${prodDaCancID}`)
-    .then(res => {
-        if(res.ok) {
-        	 console.log(res.json)
-            console.log('Cancellato', json)
-            navigate('/dashboard')
-        }
-    }).catch(err => console.log(err))
-  }, [])
 
  }
-
-
 
   return (
     <React.Fragment>
@@ -56,16 +57,46 @@ function CancellaProdotto() {
                 <div className="p-3 mb-2">
                 <div className="row bg-body-tertiary pt-3">
                    <div className="col-sm-10 text-center">
-                   <i className='bi bi bi-check-square fs-1 text-success py-5'></i>
-
-
-                      <p className="text-center">PRODOTTO CANCELLATO CORRETTAMENTE</p>
-                      <Link to="/elencoprodotti" type="button" className="btn btn-large btn-outline-primary mx-1">
-                        <i className='bi bi-arrow-left-circle'></i> TORNA ALL'ELENCO PRODOTTI
+                   
+                   	<h5>Richiesta cancellazione prodotto</h5>
+				 <button onClick={()=>cancellaProd()} type="button" className="btn btn-large btn-outline-success mx-1 mb-2">
+                        <i className='bi bi-trash'></i> OK, CANCELLA
+                      </button>
+                      
+                      <Link to="/elencoprodotti" type="button" className="btn btn-large btn-outline-danger mx-1">
+                        <i className='bi bi-arrow-left-circle'></i> NO, TORNA ALL'ELENCO PRODOTTI
                       </Link>
                     </div>
+            {/** MODALE */}
+            <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_prodotto">
+              <div className="modal-dialog-centered modal-xl bg-dark" role="document">
+                <div className="modal-content rounded-4 shadow bg-dark" >
+                  <div className="modal-header d-flex justify-content-between">
+                  <img src={logo} className='img-fluid'></img>
+                    <h2 className="modal-title text-white text-center">PRODOTTO CANCELLATO</h2>
+
+                  </div>
+                  <div className="modal-body py-3 text-white">
+
+                  <h4 className="text-white mt-3 fw-bold">Prodotto cancellato correttamente!</h4>
+                    </div>
+
+                  <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+
+                    <div className="modal-footer">
+                      <button type="button" onClick={()=>closeModal()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
+                      <i className='bi bi-x-circle px-2 fs-4'></i>Chiudi
+                      </button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+            {/** FINE MODALE */}
+
 
                 </div>
+               
 
                 </div>
 

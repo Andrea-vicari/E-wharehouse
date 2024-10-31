@@ -16,6 +16,10 @@ function MenuWare() {
               <li className="nav-item">
                 <Link className="nav-link fs-6" to={'/elencoprodotti'} >Elenco Prodotti</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link fs-6" to={'/nuovoprodotto'} >Aggiungi Prodotto</Link>
+              </li>
+
 
 
 
