@@ -7,7 +7,7 @@ const Images = require('../models/imageModel');
 
 const router = express.Router();
 
-const {viewAllImages} = require('../controllers/imageController');
+const {viewAllImages,deleteImmagine} = require('../controllers/imageController');
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -22,7 +22,7 @@ const upload = multer({ storage: storage });
 
 
 router.post('/upload', upload.single('file'),(req, res) => {
-      const {image} = req.file
+      // const {image} = req.file
 
 
 	console.log("*************")
@@ -44,6 +44,9 @@ router.post('/upload', upload.single('file'),(req, res) => {
 
 
 router.get('/', viewAllImages);
+
+// Delete
+router.delete('/delete/:id', deleteImmagine);
 
 module.exports = router;
 

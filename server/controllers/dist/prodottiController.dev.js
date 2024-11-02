@@ -87,7 +87,7 @@ var createNewProdotti = function createNewProdotti(req, res) {
 
 
 var deleteProdotto = function deleteProdotto(req, res) {
-  var id, prodotti;
+  var id;
   return regeneratorRuntime.async(function deleteProdotto$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -95,38 +95,27 @@ var deleteProdotto = function deleteProdotto(req, res) {
           id = req.params.id;
           console.log("== KINGBOY ==");
           console.log("RICHIESTA CANCELLAZIONE PRODOTTO");
-
-          if (mongoose.Types.ObjectId.isValid(id)) {
-            _context3.next = 5;
-            break;
+          console.log(id);
+          /*
+          if (!mongoose.Types.ObjectId.isValid(id)){
+              return res.status(404).json({error: "Nessun prodotto trovato"})
           }
-
-          return _context3.abrupt("return", res.status(404).json({
-            error: "Nessun prodotto trovato"
-          }));
-
-        case 5:
-          _context3.next = 7;
-          return regeneratorRuntime.awrap(Prodotti.findOneAndDelete({
-            _id: id
-          }));
-
-        case 7:
-          prodotti = _context3.sent;
-
-          if (prodotti) {
-            _context3.next = 10;
-            break;
-          }
-
-          return _context3.abrupt("return", res.status(400).json({
-            error: "Nessun prodotto trovato"
-          }));
-
-        case 10:
+          try{
+           const prodotti = await Prodotti.findOneAndDelete({_id: id})
+           if(!prodotti){
+              //console.log({error: error.message})
+              return res.status(400).json({error: "Nessun prodotto trovato"})
+            }
+          console.log(prodotti)
           res.status(200).json(prodotti);
+          }
+          catch(error){
+            console.log({error: error.message})
+            res.status(400).json({error: error.message})
+          }
+          */
 
-        case 11:
+        case 4:
         case "end":
           return _context3.stop();
       }

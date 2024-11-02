@@ -133,8 +133,8 @@ function ElencoProdotti() {
                             </div>
                        </div>
                        <div className="col-sm-8 d-flex justify-content-end align-items-center">
-                            <Link to="nuovoprodotto" type="button" className="btn btn-success">
-                            	<i className="bi bi-plus-circle mx-2"> 
+                            <Link to="/nuovoprodotto" type="button" className="btn btn-success">
+                            	<i className="bi bi-plus-circle mx-2">
                             	</i>Aggiungi Prodotto
                             </Link>
                        </div>
@@ -149,7 +149,7 @@ function ElencoProdotti() {
 
               <div className="col-md-12">
                 <div className="p-3 mb-2">
-                
+
                 <div className="row bg-body-tertiary pt-3">
                     <div className="col-sm-1">
                       <p>IMMAGINE</p>
@@ -224,7 +224,7 @@ function ElencoProdotti() {
                       <button type="button" className="btn btn-sm btn-outline-primary mx-1">
                         <i className='bi bi-zoom-in'></i>
                       </button>
-                      <Link to={`/cancellaprodotto/${e._id}`} state={e._id} type="button" className="btn btn-sm btn-outline-primary mx-1">
+                      <Link to={`/cancellaprodotto/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-primary mx-1">
                         <i className='bi bi-trash'></i>
                       </Link>
                       <button type="button" className="btn btn-sm btn-outline-primary mx-1">
