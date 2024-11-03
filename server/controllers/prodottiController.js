@@ -47,13 +47,14 @@ const deleteProdotto = async (req, res)=> {
     console.log(id)
 
 
-    /*
+/*
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: "Nessun prodotto trovato"})
     }
+    */
     try{
 
-    const prodotti = await Prodotti.findOneAndDelete({_id: id})
+    const prodotti = await Prodotti.findOneAndDelete({unicoID: id})
 
     if(!prodotti){
         //console.log({error: error.message})
@@ -67,7 +68,7 @@ const deleteProdotto = async (req, res)=> {
       console.log({error: error.message})
       res.status(400).json({error: error.message})
     }
-    */
+
 
 	}
 

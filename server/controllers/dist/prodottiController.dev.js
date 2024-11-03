@@ -87,7 +87,7 @@ var createNewProdotti = function createNewProdotti(req, res) {
 
 
 var deleteProdotto = function deleteProdotto(req, res) {
-  var id;
+  var id, prodotti;
   return regeneratorRuntime.async(function deleteProdotto$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -97,30 +97,51 @@ var deleteProdotto = function deleteProdotto(req, res) {
           console.log("RICHIESTA CANCELLAZIONE PRODOTTO");
           console.log(id);
           /*
-          if (!mongoose.Types.ObjectId.isValid(id)){
-              return res.status(404).json({error: "Nessun prodotto trovato"})
-          }
-          try{
-           const prodotti = await Prodotti.findOneAndDelete({_id: id})
-           if(!prodotti){
-              //console.log({error: error.message})
-              return res.status(400).json({error: "Nessun prodotto trovato"})
-            }
-          console.log(prodotti)
-          res.status(200).json(prodotti);
-          }
-          catch(error){
-            console.log({error: error.message})
-            res.status(400).json({error: error.message})
-          }
-          */
+              if (!mongoose.Types.ObjectId.isValid(id)){
+                  return res.status(404).json({error: "Nessun prodotto trovato"})
+              }
+              */
 
-        case 4:
+          _context3.prev = 4;
+          _context3.next = 7;
+          return regeneratorRuntime.awrap(Prodotti.findOneAndDelete({
+            unicoID: id
+          }));
+
+        case 7:
+          prodotti = _context3.sent;
+
+          if (prodotti) {
+            _context3.next = 10;
+            break;
+          }
+
+          return _context3.abrupt("return", res.status(400).json({
+            error: "Nessun prodotto trovato"
+          }));
+
+        case 10:
+          console.log(prodotti);
+          res.status(200).json(prodotti);
+          _context3.next = 18;
+          break;
+
+        case 14:
+          _context3.prev = 14;
+          _context3.t0 = _context3["catch"](4);
+          console.log({
+            error: _context3.t0.message
+          });
+          res.status(400).json({
+            error: _context3.t0.message
+          });
+
+        case 18:
         case "end":
           return _context3.stop();
       }
     }
-  });
+  }, null, null, [[4, 14]]);
 }; // Get a specific prodotti
 
 
